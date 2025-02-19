@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Counter from './component/counter';
+import RichText from './component/richtext'; 
+import UserForm from './component/userdata';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Dashboard from './component/dashboard';
+import Navbar from './component/navbar';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/editor" element={<RichText />} />
+          <Route path="/user" element={<UserForm />} />
+        </Routes> {/* Closing Routes here */}
+      </Router>
     </div>
   );
 }
