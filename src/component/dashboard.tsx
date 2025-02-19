@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid, Box } from "@mui/material";
+import { Container, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid } from "@mui/material";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { useNavigate } from "react-router-dom";
-
 const Dashboard: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
-  const navigate = useNavigate();
-
   useEffect(() => {
     const savedUsers = localStorage.getItem("users");
     if (savedUsers) {
